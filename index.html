@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Patil Water Park | Book Your Day of Fun</title>
+<meta name="description" content="Book your Patil Water Park visit. Adult tickets ₹650, children ₹450. Free Virar station pickup and drop, unlimited breakfast, lunch and hi-tea.">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--blue:#087fc4;--deep:#063b67;--aqua:#39d5d0;--sun:#ffcb55;--ink:#10334b;--muted:#5b7485;--paper:#f3fbff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid #d9edf6}
+.nav{max-width:1150px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:900;font-size:20px;color:var(--deep);display:flex;align-items:center;gap:9px}.logo{background:linear-gradient(135deg,var(--blue),var(--aqua));color:white;border-radius:13px;padding:9px}
+nav{display:flex;gap:22px;align-items:center}nav a{color:var(--ink);text-decoration:none;font-weight:650;font-size:14px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 21px;background:var(--sun);color:#173b50;font-weight:850;text-decoration:none;cursor:pointer;box-shadow:0 8px 20px #e9b83b44}
+.btn.blue{background:var(--blue);color:white}.btn:disabled{opacity:.55;cursor:not-allowed}
+.hero{min-height:570px;color:white;display:flex;align-items:center;background:linear-gradient(90deg,#052f55eF 0%,#075c83aa 52%,#063b6733 100%),url('https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero-inner{max-width:1150px;width:100%;margin:auto;padding:75px 22px}.eyebrow{letter-spacing:2px;text-transform:uppercase;font-size:12px;font-weight:900;color:#a8fff3}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.02;max-width:720px;margin:16px 0}.hero p{font-size:18px;line-height:1.7;max-width:610px;color:#e5faff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}.pill{padding:9px 13px;border-radius:30px;background:#ffffff22;border:1px solid #ffffff55;font-weight:700;font-size:13px}
+section{max-width:1150px;margin:auto;padding:72px 22px}.section-head{text-align:center;margin-bottom:35px}.section-head h2{font-size:clamp(28px,4vw,42px);margin:0 0 10px;color:var(--deep)}.section-head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid #dceef5;border-radius:22px;padding:24px;box-shadow:0 10px 35px #07557b0b}
+.price{font-size:38px;font-weight:950;color:var(--blue);margin:8px 0}.card h3{margin:8px 0;color:var(--deep)}.card p{color:var(--muted);line-height:1.6}
+.feature-icon{font-size:30px}.booking-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+form{display:grid;gap:14px}.field{display:grid;gap:7px}label{font-size:13px;font-weight:800;color:#244e67}input,select{width:100%;padding:14px 13px;border:1px solid #c9e1ec;border-radius:12px;background:#fbfeff;font:inherit;color:var(--ink)}input:focus,select:focus{outline:2px solid #8de8e3;border-color:var(--blue)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.summary{background:linear-gradient(145deg,#063b67,#087fc4);color:white;border-radius:22px;padding:25px;position:sticky;top:90px}.summary h3{margin-top:0}.sumline{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff33}.total{font-size:30px;font-weight:950;padding-top:18px}.notice{font-size:12px;line-height:1.5;color:#d9f5ff;margin-top:14px}
+.status{padding:13px;border-radius:12px;background:#e9f8ff;color:#07557b;display:none;font-weight:650;line-height:1.5}
+.gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}.gallery img{width:100%;height:220px;object-fit:cover;border-radius:18px}.gallery img:first-child{height:454px;grid-row:span 2}
+footer{background:#052f55;color:#d9f5ff;padding:35px 22px;text-align:center}footer strong{color:white}
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:760px){nav{display:none}.hero{min-height:540px}.cards,.booking-wrap{grid-template-columns:1fr}.summary{position:static}.gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{height:220px;grid-row:auto;grid-column:span 2}.two{grid-template-columns:1fr 1fr}section{padding:54px 18px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand"><span class="logo">🌊</span> PATIL WATER PARK</div><nav><a href="#experience">Experience</a><a href="#facilities">Facilities</a><a href="#prices">Tickets</a><a href="#booking">Book now</a></nav><a class="btn" href="#booking">Book tickets</a></div></header>
+<main>
+<div class="hero"><div class="hero-inner"><div class="eyebrow">Make a splash • Make memories</div><h1>Your happiest day starts with a splash!</h1><p>Enjoy a full day of water-filled fun at Patil Water Park. Great rides, delicious meals and a convenient free pickup and drop from Virar Station.</p><div class="pills"><span class="pill">🕘 9 AM – 6 PM</span><span class="pill">🚌 Free Virar pickup & drop</span><span class="pill">🍽️ Meals included</span></div><a class="btn" href="#booking">Reserve your visit →</a></div></div>
+<section id="experience"><div class="section-head"><h2>Big thrills. Happy memories.</h2><p>A refreshing day out for friends and families.</p></div><div class="gallery">
+<img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=900&q=85" alt="Water park pools and slides">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=85" alt="Refreshing blue water">
+<img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=700&q=85" alt="Family summer fun">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=700&q=85" alt="Swimming pool">
+<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=700&q=85" alt="Sunny resort day">
+</div></section>
+<section id="facilities"><div class="section-head"><h2>Everything included in your ticket</h2><p>Spend less time planning and more time enjoying.</p></div><div class="cards">
+<div class="card"><div class="feature-icon">🚌</div><h3>Free pickup & drop</h3><p>Convenient complimentary pickup and drop service from Virar Railway Station.</p></div>
+<div class="card"><div class="feature-icon">🥞</div><h3>Unlimited breakfast</h3><p>Enjoy unlimited breakfast as part of your ticket package.</p></div>
+<div class="card"><div class="feature-icon">🍛</div><h3>Unlimited lunch</h3><p>A satisfying unlimited lunch is included in your ticket price.</p></div>
+<div class="card"><div class="feature-icon">☕</div><h3>Hi-tea</h3><p>Take a relaxing break and enjoy hi-tea during your visit.</p></div>
+<div class="card"><div class="feature-icon">👨‍👩‍👧‍👦</div><h3>Family day out</h3><p>Bring your family and friends for a refreshing day together.</p></div>
+<div class="card"><div class="feature-icon">🌊</div><h3>Full-day access</h3><p>Enjoy your visit between 9:00 AM and 6:00 PM.</p></div>
+</div></section>
+<section id="prices"><div class="section-head"><h2>Simple ticket pricing</h2><p>Meals and Virar Station pickup/drop are included.</p></div><div class="cards">
+<div class="card"><div class="feature-icon">🧑</div><h3>Adult ticket</h3><div class="price">₹650</div><p>Per adult visitor</p></div>
+<div class="card"><div class="feature-icon">🧒</div><h3>Children ticket</h3><div class="price">₹450</div><p>Per child visitor. Please confirm the park's child-age policy before booking.</p></div>
+<div class="card"><div class="feature-icon">🎟️</div><h3>Daily capacity</h3><div class="price">1,000</div><p>Maximum visitor capacity per day. Book in advance to secure your date.</p></div>
+</div></section>
+<section id="booking"><div class="section-head"><h2>Book your water park visit</h2><p>Enter your details and reserve your preferred date.</p></div><div class="booking-wrap">
+<div class="card"><form id="bookingForm">
+<div class="field"><label for="customer">Customer name</label><input id="customer" required maxlength="100" placeholder="Enter full name"></div>
+<div class="field"><label for="phone">Contact number</label><input id="phone" required inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number"></div>
+<div class="field"><label for="date">Booking date</label><input id="date" type="date" required></div>
+<div class="two"><div class="field"><label for="adults">Adults (₹650 each)</label><input id="adults" type="number" min="0" max="1000" value="1" required></div><div class="field"><label for="children">Children (₹450 each)</label><input id="children" type="number" min="0" max="1000" value="0" required></div></div>
+<div class="field"><label for="payment">Payment method</label><select id="payment"><option value="upi">UPI payment</option></select></div>
+<div class="field"><label for="utr">UPI transaction reference / UTR</label><input id="utr" required maxlength="50" placeholder="Enter reference after paying"></div>
+<div class="small">Pay to UPI ID <strong>7039102251@kotakbank</strong>. Your booking will remain pending until the park verifies your payment. Do not enter your UPI PIN on this website.</div>
+<button class="btn blue" id="submitBtn" type="submit">Submit booking request</button>
+<div class="status" id="status" role="status"></div>
+</form></div>
+<aside class="summary"><h3>Your booking summary</h3><div class="sumline"><span>Adults</span><strong id="adultLine">1 × ₹650</strong></div><div class="sumline"><span>Children</span><strong id="childLine">0 × ₹450</strong></div><div class="sumline"><span>Total visitors</span><strong id="peopleLine">1</strong></div><div class="total" id="totalLine">₹650</div><p class="notice">Daily limit: 1,000 visitors. Your date is confirmed only after successful payment verification by the park. Submitting this form does not itself verify a payment.</p><a class="btn" id="payLink" href="upi://pay?pa=7039102251%40kotakbank&pn=Patil%20Water%20Park&cu=INR">Pay with UPI app</a></aside>
+</div></section>
+</main>
+<footer><strong>Patil Water Park</strong><p>9:00 AM – 6:00 PM | Free pickup & drop from Virar Station</p><p class="small">Please contact the park directly for location, operating-day confirmation and booking assistance.</p></footer>
+<script>
+const SUPABASE_URL = "https://kepkgwoyecwvqbvxupib.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ZMtnvb19WxPxu6jwpStolQ_qmkw2y9Z";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const $ = id => document.getElementById(id);
+const today = new Date(); today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+$("date").min = today.toISOString().slice(0,10);
+function updateTotal(){
+ const a=Math.max(0,Number($("adults").value)||0), c=Math.max(0,Number($("children").value)||0);
+ const people=a+c, total=a*650+c*450;
+ $("adultLine").textContent=`${a} × ₹650`; $("childLine").textContent=`${c} × ₹450`;
+ $("peopleLine").textContent=people; $("totalLine").textContent=total.toLocaleString("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0});
+ $("payLink").href=`upi://pay?pa=7039102251%40kotakbank&pn=Patil%20Water%20Park&am=${total}&cu=INR&tn=Patil%20Water%20Park%20booking`;
+}
+["adults","children"].forEach(id=>$(id).addEventListener("input",updateTotal)); updateTotal();
+$("bookingForm").addEventListener("submit",async e=>{
+ e.preventDefault(); const status=$("status"), btn=$("submitBtn");
+ const adults=Number($("adults").value), children=Number($("children").value), totalPeople=adults+children;
+ if(totalPeople<1){status.style.display="block";status.textContent="Please select at least one visitor.";return;}
+ if(totalPeople>1000){status.style.display="block";status.textContent="A single booking cannot exceed 1,000 visitors.";return;}
+ btn.disabled=true;btn.textContent="Submitting…";status.style.display="block";status.textContent="Sending your booking request securely…";
+ try{
+  const payload={p_customer_name:$("customer").value.trim(),p_phone:$("phone").value.trim(),p_booking_date:$("date").value,p_adults:adults,p_children:children,p_payment_method:"upi",p_utr:$("utr").value.trim()};
+  const {data,error}=await db.rpc("create_waterpark_booking",payload);
+  if(error) throw error;
+  const result=Array.isArray(data)?data[0]:data;
+  status.textContent=`Booking request received! Your booking ID is ${result.booking_code}. Payment status: pending verification. Please keep your UPI transaction reference.`;
+  $("bookingForm").reset();$("adults").value=1;$("children").value=0;updateTotal();
+ }catch(err){console.error(err);status.textContent=err.message?.includes("CAPACITY_FULL")?"Sorry, this date has reached its 1,000-person capacity. Please choose another date.":`We couldn't submit your booking. ${err.message||"Please try again or contact the park."}`}
+ finally{btn.disabled=false;btn.textContent="Submit booking request";}
+});
+</script>
+</body></html>
